@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveSwift
+import ReactiveCocoa
 import Result
 
 class ViewController: UIViewController {
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
     
     
     func startCountdown(sec: Double, targetLabel: UILabel) -> SignalProducer<Void, NoError> {
-        targetLabel.isHidden = true
+        targetLabel.isHidden = false
         
         return SignalProducer<Void, NoError> { (observer, lifetime) in
             
@@ -34,9 +35,14 @@ class ViewController: UIViewController {
                 .skipRepeats()
                 .observe(on: UIScheduler())
                 .startWithSignal { (signal, disposable) in
-                    lifetime += targetLabel.reac
+                    lifetime += targetLabel.reactive.text <~ signal.map { String($0) }
+                    lifetime += signal.observeCompleted {
+                        targetLabel.isHidden = true
+                        //takeによりcompletedが送信されたら
+                        //observerもcompletedを送信して呼び先に知らせる
+                        observer.sendCompleted()
+                    }
                 }
-            observer.sendCompleted()
         }
     }
     
