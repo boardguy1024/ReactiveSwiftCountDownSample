@@ -18,27 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6d-T2-sWj">
-                                <rect key="frame" x="126" y="214" width="122" height="239"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="tX1-MB-drt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6d-T2-sWj">
+                                <rect key="frame" x="62" y="196" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="OeR-St-NHA"/>
+                                    <constraint firstAttribute="width" constant="250" id="xkC-kV-DWK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="v6d-T2-sWj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="22T-KZ-Dm0"/>
-                            <constraint firstItem="v6d-T2-sWj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Tw-uT-DZq"/>
-                            <constraint firstItem="v6d-T2-sWj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="Sue-3e-PbO"/>
+                            <constraint firstItem="v6d-T2-sWj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-12.5" id="6Tw-uT-DZq"/>
+                            <constraint firstItem="tX1-MB-drt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IYM-hu-dkE"/>
+                            <constraint firstItem="tX1-MB-drt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SEV-FW-Oa7"/>
+                            <constraint firstItem="tX1-MB-drt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xmj-x4-EdP"/>
+                            <constraint firstItem="tX1-MB-drt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m2M-MH-eJ6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="tX1-MB-drt" id="XwA-gf-Khs"/>
                         <outlet property="countdownLabel" destination="v6d-T2-sWj" id="yQs-3P-1bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image" width="640" height="1136"/>
+    </resources>
 </document>

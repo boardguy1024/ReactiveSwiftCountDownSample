@@ -13,14 +13,20 @@ import Result
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var countdownLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundImageView.alpha = 0
+        self.view.backgroundColor = .black
         
         startCountdown(sec: 3, targetLabel: self.countdownLabel)
             .startWithCompleted {
                 print("Finished Countdown")
                 //カウントダウンが完了後処理したいコードを書く
+                UIView.animate(withDuration: 0.5) {
+                    self.backgroundImageView.alpha = 1
+                }
             }
         
     }
